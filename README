@@ -1,0 +1,26 @@
+Requirements:
+SQLite and python installed
+thats it probably
+
+Run create_db.py once for your semester of interest to create a database of all courses offered for this semester. You
+only have to do this once for any given semester, and only if the file for your semester of choice hasn't already been
+created (named ID_cab_base where ID is a unique semester ID). It may take a couple minutes.
+
+The pattern for semester IDs is a concatenation of:
+        1. First part of the academic year (ex. 2024 for the 2024-2025 academic year)
+        2. "00" for Summer, "10" for Fall, "15" for Winter, "20" for Spring
+    Examples:
+    Fall 2024: 202410
+    Winter 2025: 202415
+    Spring 2025: 202420
+
+Determining classes that build on a given class ("post-requisites" or at least related) ===============================
+1. Set SEM_ID in post_req.py as the id of the semester of interest
+2. Set PREREQ_CODE in post_req.py to the class code of interest (formatted as eg. MATH 0100)
+3. Repeat steps 1-2 but for SEM_ID of the previous semester, as classes are often "fall" or "spring" classes. Checking
+   both Fall and Spring ensures most regularly offered courses are considered.
+Note that not all courses listed necessarily have the inputted class as a prerequisite; rather, it only means the
+descriptions and/or course registration restrictions on CAB mentioned the class in some way. This could be as a
+recommendation, prerequisite, or one of many ways to fulfill the same prerequisite. I recommend you go through each of
+the outputted classes to confirm before using the list to make any course selection decisions; this is a starting point.
+=======================================================================================================================
